@@ -29,6 +29,10 @@ func FetchRegoRules(additionalResources []schema.GroupVersionKind) ([]Rule, erro
 
 	var rules []Rule
 	for _, info := range fis {
+		if strings.HasSuffix(info.Name(), ".tmpl") && len(additionalResources) == 0 {
+			continue
+		}
+
 		data, err := local.ReadFile(path.Join(RULES_DIR, info.Name()))
 		if err != nil {
 			return nil, err

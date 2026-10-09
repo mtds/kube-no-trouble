@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"k8s.io/apimachinery/pkg/runtime/schema"
@@ -13,7 +14,7 @@ func TestFetchRules(t *testing.T) {
 	var expected []string
 	root := "rego/"
 	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
-		if info.Name() != "rego" {
+		if info.Name() != "rego" && !strings.HasSuffix(info.Name(), ".tmpl") {
 			expected = append(expected, info.Name())
 		}
 		return nil
@@ -48,7 +49,7 @@ func TestFetchRulesWithAdditionalResources(t *testing.T) {
 		additionalKinds = append(additionalKinds, *gvr)
 	}
 
-	rules, err := FetchRegoRules([]schema.GroupVersionKind{})
+	rules, err := FetchRegoRules(additionalKinds)
 	if err != nil {
 		t.Errorf("Failed to load rules with: %s", err)
 	}
