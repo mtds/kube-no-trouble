@@ -5,7 +5,7 @@ go 1.26.0
 require (
 	github.com/ghodss/yaml v1.0.0
 	github.com/hashicorp/go-version v1.9.0
-	github.com/open-policy-agent/opa v1.21.1
+	github.com/open-policy-agent/opa v1.21.4
 	github.com/rs/zerolog v1.35.1
 	github.com/spf13/pflag v1.0.10
 	helm.sh/helm/v3 v3.22.0
