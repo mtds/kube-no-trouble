@@ -7,7 +7,7 @@ require (
 	github.com/hashicorp/go-version v1.9.0
 	github.com/open-policy-agent/opa v1.21.1
 	github.com/rs/zerolog v1.35.1
-	github.com/spf13/pflag v1.0.10
+	github.com/spf13/pflag v1.1.0
 	helm.sh/helm/v3 v3.22.0
 	k8s.io/apimachinery v0.37.1
 	k8s.io/client-go v0.37.1 // Change me and break everything
